@@ -1,4 +1,7 @@
+import { Header } from "@/src/features/layout/Header";
+import clsx from "clsx";
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -24,11 +27,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark h-full" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={clsx(
+          `${geistSans.variable} ${geistMono.variable}h-full bg-background antialiased`
+        )}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="flex h-full flex-col">
+            <Header />
+            <div className="m-auto w-full max-w-lg flex-1 py-12">
+              {children}
+            </div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
