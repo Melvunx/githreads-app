@@ -1,4 +1,5 @@
-import { Header } from "@/src/features/layout/Header";
+import { Footer } from "@/src/features/layout/Footer";
+import Header from "@/src/features/layout/Header";
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
@@ -35,9 +36,10 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex h-full flex-col">
-            <Header />
             <div className="m-auto w-full max-w-lg flex-1 py-12">
+              <Header />
               {children}
+              <Footer />
             </div>
           </div>
         </ThemeProvider>
