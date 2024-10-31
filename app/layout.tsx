@@ -36,8 +36,8 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex h-full flex-col">
-            <div className="m-auto w-full max-w-lg flex-1 py-12">
               <Header />
+            <div className="m-auto w-full max-w-lg flex-1 py-14">
               {children}
               <Footer />
             </div>
