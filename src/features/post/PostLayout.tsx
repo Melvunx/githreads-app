@@ -18,9 +18,12 @@ export const PostLayout = ({
   user,
   postId,
   createdAt,
+  children,
 }: PostLayoutProps) => {
   return (
-    <div className={clsx("flex w-full flex-row items-start p-4", className)}>
+    <div
+      className={clsx("flex w-full flex-row items-start gap-2 p-4", className)}
+    >
       <Avatar>
         {user.image ? (
           <AvatarImage src={user.image} alt={user.username} />
@@ -46,6 +49,7 @@ export const PostLayout = ({
             </button>
           </div>
         </Link>
+        {children}
       </div>
     </div>
   );
