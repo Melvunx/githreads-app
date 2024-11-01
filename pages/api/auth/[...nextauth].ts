@@ -20,10 +20,28 @@ export const authConfig = {
     GithubProvider({
       clientId: githubId,
       clientSecret: githubSecret,
+      profile: async (profile) => {
+        return {
+          id: profile.id.toString(),
+          username: profile.login,
+          name: profile.name,
+          email: profile.email,
+          image: profile.avatar_url,
+        };
+      },
     }),
     GoogleProvider({
       clientId: googleId,
       clientSecret: googleSecret,
+      profile: async (profile) => {
+        return {
+          id: profile.sub.toString(),
+          username: profile.given_name,
+          name: profile.name,
+          email: profile.email,
+          image: profile.picture,
+        };
+      },
     }),
     EmailProvider({
       server: {
